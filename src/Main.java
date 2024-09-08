@@ -41,28 +41,46 @@ public class Main {
 
         scanner.close();
     }
-    public static boolean gameOver(char[][] hamleler) {
-        for (int i = 0; i < 3; i++) {
-            if (hamleler[i][0] == hamleler[i][1] && hamleler[i][1] == hamleler[i][2] && hamleler[i][0] != '\0') {
-                return true;
-            }
-
-            if (hamleler[0][i] == hamleler[1][i] && hamleler[1][i] == hamleler[2][i] && hamleler[0][i] != '\0') {
-                return true;
-            }
+    public static boolean gameOver() {
+        boolean gameOver = false;
+    
+        if (hamleler[2][0] == 'X' && hamleler[1][0] == 'X' && hamleler[0][0] == 'X') {
+            gameOver = true;
+        } else if (hamleler[0][0] == 'X' && hamleler[0][1] == 'X' && hamleler[0][2] == 'X') {
+            gameOver = true;
+        } else if (hamleler[0][0] == 'X' && hamleler[1][1] == 'X' && hamleler[2][2] == 'X') {
+            gameOver = true;
+        } else if (hamleler[2][0] == 'X' && hamleler[1][1] == 'X' && hamleler[0][2] == 'X') {
+            gameOver = true;
+        } else if (hamleler[2][0] == 'O' && hamleler[1][0] == 'O' && hamleler[0][0] == 'O') {
+            gameOver = true;
+        } else if (hamleler[0][0] == 'O' && hamleler[0][1] == 'O' && hamleler[0][2] == 'O') {
+            gameOver = true;
+        } else if (hamleler[0][0] == 'O' && hamleler[1][1] == 'O' && hamleler[2][2] == 'O') {
+            gameOver = true;
+        } else if (hamleler[2][0] == 'O' && hamleler[1][1] == 'O' && hamleler[0][2] == 'O') {
+            gameOver = true;
+        } else if (hamleler[2][1] == 'X' && hamleler[1][1] == 'X' && hamleler[0][1] == 'X') {
+            gameOver = true;
+        } else if (hamleler[2][2] == 'X' && hamleler[1][2] == 'X' && hamleler[0][2] == 'X') {
+            gameOver = true;
+        } else if (hamleler[1][0] == 'X' && hamleler[1][1] == 'X' && hamleler[1][2] == 'X') {
+            gameOver = true;
+        } else if (hamleler[2][0] == 'X' && hamleler[2][1] == 'X' && hamleler[2][2] == 'X') {
+            gameOver = true;
+        } else if (hamleler[2][1] == 'O' && hamleler[1][1] == 'O' && hamleler[0][1] == 'O') {
+            gameOver = true;
+        } else if (hamleler[2][2] == 'O' && hamleler[1][2] == 'O' && hamleler[0][2] == 'O') {
+            gameOver = true;
+        } else if (hamleler[1][0] == 'O' && hamleler[1][1] == 'O' && hamleler[1][2] == 'O') {
+            gameOver = true;
+        } else if (hamleler[2][0] == 'O' && hamleler[2][1] == 'O' && hamleler[2][2] == 'O') {
+            gameOver = true;
         }
     
- 
-        if (hamleler[0][0] == hamleler[1][1] && hamleler[1][1] == hamleler[2][2] && hamleler[0][0] != '\0') {
-            return true;
-        }
-        if (hamleler[0][2] == hamleler[1][1] && hamleler[1][1] == hamleler[2][0] && hamleler[0][2] != '\0') {
-            return true;
-        }
-    
-
-        return false;
+        return gameOver;
     }
+    
     public static boolean hasMoreMoves() {
         boolean hasMoreMoves = false;
         for (int i = 0; i < 3; i++) {
